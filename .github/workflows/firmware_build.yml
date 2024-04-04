@@ -45,13 +45,13 @@ jobs:
           chmod +x jq
           mv jq /usr/local/sbin/
 
-          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~)
+          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~ | grep ffkb/rp/v1)
 
           echo "${keyboards}" | while IFS= read -r line ; do
             case "$line" in
               *${{ matrix.keyboard }}*)
                 echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -r"
+                make_command="bin/fp_build.sh -k ${line} -r -m personal"
                 echo "${make_command}"
                 $make_command
               ;;
