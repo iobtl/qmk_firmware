@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // - Check if mod-tap shift/space is fine
 // - Check if mod-tap ctrl/enter is fine
 // - Replace backslash?
-// - grave escape ok?
+// - grave escape ok? (esc normally, tilde on shift, backtick on cmd, but macos mapped to swap focus, so put backtick on symbol layer)
 [_QWERTY] = LAYOUT_ffkb(
   GK_GESC,         KC_Q,      KC_W,         KC_E,         KC_R,         KC_T,         KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,             KC_BSLS,
   CTL_T(KC_TAB),  KC_A,      KC_S,         KC_D,         KC_F,         KC_G,         KC_H,    KC_J,         KC_K,         KC_L,         KC_SCLN,          KC_QUOT,
@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Raise
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |      |      |      |      | c-s-4| c-s-5|             |      |      |      | c-a-o|c-a-p |      |
+ * |      |      |      |      | c-s-4| c-s-5|             |o(c-s)|o(c-a)|o(csa)| c-a-o|c-a-p |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * | CAPS | c-a-a| c-a-s| ctrl | shift| alt  |             | left | down |  up  | right|      |      |
+ * | CAPS | c-a-a| c-a-s|o(ctl)|o(sft)|o(alt)|             | left | down |  up  | right|      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |      |      |      |ctrl-b|c-a-b |             | home | pgdn | pgup | end  |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
@@ -71,9 +71,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // - cmd-backspace for deleting line
 // - ctrl-b for tmux prefix
 // Idea: put cmd-shift on right hand
+// one-shot keys also work as modifiers
 [_RAISE] = LAYOUT_ffkb(
-  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, _______, _______, LAG(KC_O), LAG(KC_P), _______,
-  KC_CAPS, LAG(KC_A), LAG(KC_S), KC_LCTL, KC_LSFT, _______,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      OSM(MOD_LGUI | MOD_LSFT), OSM(MOD_LGUI | MOD_LALT), OSM(MOD_LGUI | MOD_LSFT | MOD_LALT), LAG(KC_O), LAG(KC_P), _______,
+  KC_CAPS, LAG(KC_A), LAG(KC_S), OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT),      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
   _______, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
@@ -81,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Lower
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |   ~  |   <  |   >  |   [  |   ]  |   &  |             |   -  |   7  |   8  |   9  |   0  |  |   |
+ * |   `  |   <  |   >  |   [  |   ]  |   &  |             |   -  |   7  |   8  |   9  |   0  |  |   |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |   #  |   !  |   "  |   (  |   )  |   _  |             |   =  |   4  |   5  |   6  |   :  |  $   |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
@@ -99,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Shift-space also separate? to type caps letters in quick succession
 // Left with: !@#$%, ""
 [_LOWER] = LAYOUT_ffkb(
-  KC_TILD, KC_LABK, KC_RABK, KC_LBRC, KC_RBRC, KC_AMPR,      KC_MINS, KC_7,    KC_8,    KC_9, KC_0,    KC_PIPE,
+  KC_GRV,  KC_LABK, KC_RABK, KC_LBRC, KC_RBRC, KC_AMPR,      KC_MINS, KC_7,    KC_8,    KC_9, KC_0,    KC_PIPE,
   KC_HASH, KC_EXLM, KC_DQT, KC_LPRN,  KC_RPRN, KC_UNDS,      KC_EQL,  KC_4,    KC_5,    KC_6,  KC_COLN, KC_DLR,
   KC_CIRC, KC_AT,   QK_REP(KC_COLN), KC_LCBR, KC_RCBR, KC_ASTR,      KC_PPLs, KC_1,    KC_2,    KC_3, KC_QUES, KC_PERC,
                     _______, _______, _______, _______,      _______, _______, _______, _______
