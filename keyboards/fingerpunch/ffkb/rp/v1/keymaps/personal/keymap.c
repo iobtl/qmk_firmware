@@ -36,10 +36,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // - Replace backslash?
 // - grave escape ok? (esc normally, tilde on shift, backtick on cmd, but macos mapped to swap focus, so put backtick on symbol layer)
 [_QWERTY] = LAYOUT_ffkb(
-  GK_GESC,         KC_Q,      KC_W,         KC_E,         KC_R,         KC_T,         KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,             KC_BSLS,
+  QK_GESC,         KC_Q,      KC_W,         KC_E,         KC_R,         KC_T,         KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,             KC_BSLS,
   CTL_T(KC_TAB),  KC_A,      KC_S,         KC_D,         KC_F,         KC_G,         KC_H,    KC_J,         KC_K,         KC_L,         KC_SCLN,          KC_QUOT,
   KC_LSFT,        KC_Z,      KC_X,         KC_C,         KC_V,         KC_B,         KC_N,    KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,          KC_DQT,
-                  KC_LCTL(KC_BSPC),        KC_LCMD,      LOWER,        CTL_T(KC_ENT),       SFT_T(KC_SPC),  KC_BSPC,      RAISE,        KC_UNDO
+                  LCTL(KC_BSPC),        KC_LCMD,      LOWER,        CTL_T(KC_ENT),       SFT_T(KC_SPC),  KC_BSPC,      RAISE,        KC_UNDO
 ),
 
 
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT_ffkb(
   KC_GRV,  KC_LABK, KC_RABK, KC_LBRC, KC_RBRC, KC_AMPR,      KC_MINS, KC_7,    KC_8,    KC_9, KC_0,    KC_PIPE,
   KC_HASH, KC_EXLM, KC_DQT, KC_LPRN,  KC_RPRN, KC_UNDS,      KC_EQL,  KC_4,    KC_5,    KC_6,  KC_COLN, KC_DLR,
-  KC_CIRC, KC_AT,   QK_REP(KC_COLN), KC_LCBR, KC_RCBR, KC_ASTR,      KC_PPLs, KC_1,    KC_2,    KC_3, KC_QUES, KC_PERC,
+  KC_CIRC, KC_AT,   QK_REP(KC_COLN), KC_LCBR, KC_RCBR, KC_ASTR,      KC_PPLS, KC_1,    KC_2,    KC_3, KC_QUES, KC_PERC,
                     _______, _______, _______, _______,      _______, _______, _______, _______
 ),
 
@@ -128,6 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE);
-}
+// used to turn on third layer if both LOWER and RAISE are activated
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//   return update_tri_layer_state(state, _LOWER, _RAISE);
+// }
