@@ -19,7 +19,7 @@ jobs:
         ref: ${{ github.ref }}
     - id: set-matrix
       run: |
-          content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~|  jq -Rsc '. / "\n" - [""]')
+          content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~| grep ffkb/rp/v1 | jq -Rsc '. / "\n" - [""]')
           content="{\"keyboard\":$content}"
           echo "::set-output name=matrix::$content"
 
@@ -45,13 +45,13 @@ jobs:
           chmod +x jq
           mv jq /usr/local/sbin/
 
-          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~)
+          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~ | grep ffkb/rp/v1)
 
           echo "${keyboards}" | while IFS= read -r line ; do
             case "$line" in
               *${{ matrix.keyboard }}*)
                 echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -r"
+                make_command="bin/fp_build.sh -k ${line} -r -m callum"
                 echo "${make_command}"
                 $make_command
               ;;
