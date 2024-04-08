@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Shift-space also separate? to type caps letters in quick succession
 // Left with: !@#$%, ""
 [_SYM] = LAYOUT_ffkb(
-  KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN _______,
+  KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
   _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_PIPE,      KC_MINS, KC_UNDS, KC_PLUS, KC_EQL,  KC_COLN, _______,
   _______, KC_TILD, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC,      DCOLN,   KC_DQUO, KC_LABK, KC_RABK, KC_QUES, _______,
                     _______, _______, _______, _______,      _______, _______, _______, _______
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      | pgdn | pgup |ctrl-b|c-a-b |             |      |      |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
- *          | DELW |        |  CMD | SYM  | Shift|    | Space| RSFT| NAV   |        | UNDO |
+ *          | DELW |        |  CMD | SYM  | Shift|    | Space| BSPC| NAV   |        | UNDO |
  *          `------'        `--------------------'    `--------------------.        `------'
  */
 
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |             |      |      |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
- *          | DELW |        |  CMD | SYM  | Shift|    | Space| RSFT| NAV   |        | UNDO |
+ *          | DELW |        |  CMD | SYM  | Shift|    | Space| BSPC| NAV   |        | UNDO |
  *          `------'        `--------------------'    `--------------------.        `------'
  */
 
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |             | WBCK | WFWD |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
- *          | DELW |        |  CMD | SYM  | Shift|    | Space| RSFT| NAV   |        | UNDO |
+ *          | DELW |        |  CMD | SYM  | Shift|    | Space| BSPC| NAV   |        | UNDO |
  *          `------'        `--------------------'    `--------------------.        `------'
  */
 
