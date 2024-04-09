@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Left with: !@#$%, ""
 [_SYM] = LAYOUT_ffkb(
   KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-  _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_PIPE,      KC_MINS, KC_UNDS, KC_PLUS, KC_EQL,  KC_COLN, _______,
+  _______, OSM(MOD_LGUI), OSM(MOD_LALT), OSM(MOD_LCTL), OSM(MOD_LSFT), KC_PIPE,      KC_MINS, KC_UNDS, KC_PLUS, KC_EQL,  KC_COLN, _______,
   _______, KC_TILD, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC,      DCOLN,   KC_DQUO, KC_LABK, KC_RABK, KC_QUES, _______,
                     _______, _______, _______, _______,      _______, _______, _______, _______
 ),
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
   _______, _______,   KC_END,    KC_HOME, SCMD(KC_4), SCMD(KC_5),      OSM(MOD_LGUI | MOD_LSFT), OSM(MOD_LGUI | MOD_LALT), OSM(MOD_LGUI | MOD_LSFT | MOD_LALT), LAG(KC_O), LAG(KC_P), _______,
-  KC_CAPS, KC_LEFT,   KC_DOWN,   KC_UP,   KC_RGHT,   KC_ENT,         KC_ENT, KC_RSFT, KC_RCTL,  KC_RALT, KC_RGUI, _______,
+  KC_CAPS, KC_LEFT,   KC_DOWN,   KC_UP,   KC_RGHT,   KC_ENT,         KC_ENT, OSM(MOD_RSFT), OSM(MOD_RCTL),  OSM(MOD_RALT), OSM(MOD_RGUI), _______,
   _______, _______,   KC_PGDN,   KC_PGUP, LCTL(KC_B), LAG(KC_B),    _______, _______, _______, _______,  _______, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Num layer
 [_NUM] = LAYOUT_ffkb(
   _______, KC_1,   KC_2,    KC_3, KC_4, KC_5,                  KC_6, KC_7, KC_8, KC_9, KC_0, _______,
-  _______, KC_LGUI,   KC_LALT,   KC_LCTL, KC_LSFT, _______,         _______, KC_RSFT, KC_RCTL,  KC_RALT, KC_RGUI, _______,
+  _______, OSM(MOD_LGUI),   OSM(MOD_LALT),   OSM(MOD_LCTL), OSM(MOD_LSFT), _______,         _______, OSM(MOD_RSFT), OSM(MOD_RCTL),  OSM(MOD_RALT), OSM(MOD_RGUI), _______,
   _______, _______,   _______,   _______, _______, _______,    _______, _______, _______, _______,  _______, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
@@ -155,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_MOUSE] =  LAYOUT_ffkb(
-  _______, _______, _______, _______, _______, FP_SCROLL_TOG,          KC_BTN1, KC_BTN2, KC_BTN3, _______, _______, _______,
+  _______, _______, _______, _______, _______, FP_SCROLL_MOMENT,          KC_BTN1, KC_BTN2, KC_BTN3, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,          KC_WBAK, KC_WFWD, _______, _______, _______, _______,
                     _______, _______, _______, _______,          _______, _______, _______, _______
