@@ -2,11 +2,13 @@
 #include QMK_KEYBOARD_H
 
 // Defines names for use in layer keycodes and the keymap
+// NOTE: third layer must be higher than both x and y!
+// See: https://github.com/qmk/qmk_firmware/blob/master/docs/ref_functions.md
 enum layer_names {
     _QWERTY,
     _SYM,
-    _NUM,
     _NAV,
+    _NUM,
     _MOUSE
 };
 
