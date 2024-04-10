@@ -8,7 +8,8 @@
 // Time layer remains active after activation (default 650ms)
 #define AUTO_MOUSE_TIME 500
 
-#define TAPPING_TERM 150
+// TODO: good value for this?
+#define TAPPING_TERM 200
 
 // TODO: not needed? already have custom userspace impl.
 // #define QUICK_TAP_TERM 100
