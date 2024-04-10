@@ -15,7 +15,7 @@ enum custom_keycodes {
 };
 
 #define SYM MO(_SYM)
-#define NUM MO(_NUM)
+#define NAV MO(_NAV)
 
 #define TAP_INTERVAL_MS 120
 
@@ -28,7 +28,7 @@ enum custom_keycodes {
 // Right-hand home row mods
 #define SFT_J RSFT_T(KC_J)
 #define GUI_K RGUI_T(KC_K)
-#define ALT_L LALT_T(KC_L)
+#define ALT_L RALT_T(KC_L)
 #define CTL_SCLN RCTL_T(KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.             ,-----------------------------------------.
  * |   `  |   !  |   @  |   #  |   $  |   %  |             |   ^  |   &  |   *  |   (  |   )  |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |   [  |   ]  |   {  |   }  |  |   |             |   -  |   _  |   =  |   +  |  :   |      |
+ * |      |   {  |   }  |   [  |   ]  |  |   |             |   -  |   _  |   =  |   +  |  :   |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |   ~  |      |      |      |      |             |  ::  |   "  |   <  |   >  |  ?   |      |
  * `-----------------------------------------'             `-----------------------------------------'
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Idea: put cmd-shift on right hand
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
-  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME LAG(KC_O), LAG(KC_P), _______,
+  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME, LAG(KC_O), LAG(KC_P), _______,
   KC_CAPS, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT,   KC_ENT,         KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, _______, _______,
   _______, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    _______, KC_PGDN, KC_PGUP, KC_MPRV,  KC_MSTP, KC_MNXT,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
@@ -169,8 +169,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_MOUSE] =  LAYOUT_ffkb(
-  _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_TOG,          KC_BTN1, KC_BTN2, KC_BTN3, _______, _______, _______,
-  _______, _______, _______, _______, _______, FP_ZOOM_MOMENT,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
+  _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_MOMENT,          KC_BTN1, KC_BTN2, KC_BTN3, _______, _______, _______,
+  _______, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT, FP_ZOOM_MOMENT,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
   _______, _______, FP_SNIPE_DPI_RESET, FP_SNIPE_DPI_DN, FP_SNIPE_DPI_UP, FP_SNIPE_MOMENT,          KC_WBAK, KC_WFWD, _______, _______, _______, _______,
                     _______, _______, _______, _______,                 _______, _______, _______, _______
 )
@@ -193,13 +193,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     return true; // Continue normal processing
 }
 
-// Standard quick-tap: if hold-tap is tapped within TAP_INTERVAL_MS of the first press,
+// quick-tap: if hold-tap is tapped within TAP_INTERVAL_MS of the first press,
 // then tap is instantly triggered.
 // This allows auto-repeat on tap-into-hold (e.g. tap backspace, keyup, then hold backspace).
 bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Match mod-tap keys. Tweak this to limit conditions that matches
     // your keyboard and habits
-    if (IS_QK_MOD_TAP(record)) {
+    if (IS_QK_MOD_TAP(keycode)) {
         // Tap the mod-tap key instantly when it follows a short interval
         if (record->event.pressed && last_input_activity_elapsed() < TAP_INTERVAL_MS) {
             record->keycode = keycode & 0xff;
@@ -217,4 +217,3 @@ bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true; // Continue normal processing
 }
 
-// TODO: global-quick-tap (require-prior-idle-ms in ZMK)

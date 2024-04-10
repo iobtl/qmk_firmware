@@ -10,8 +10,6 @@
 
 #define TAPPING_TERM 150
 
-#define QUICK_TAP_TERM 100
-
 // If another key is tapped while a key is currently being held, activates the held behavior instantly.
 #define PERMISSIVE_HOLD
 
