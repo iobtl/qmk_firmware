@@ -10,10 +10,16 @@
 
 #define TAPPING_TERM 150
 
-#define QUICK_TAP_TERM 100
+// TODO: not needed? already have custom userspace impl.
+// #define QUICK_TAP_TERM 100
 
 // If another key is tapped while a key is currently being held, activates the held behavior instantly.
 #define PERMISSIVE_HOLD
+
+#define BILATERAL_COMBINATIONS
+
+// Suppresses modifiers during periods of active typing.
+#define BILATERAL_COMBINATIONS_TYPING_STREAK_TIMEOUT 150
 
 // Define only one of the two below, but not both.
 // Read here for details: https://github.com/sadekbaroudi/qmk_firmware/tree/master/keyboards/fingerpunch#layer-lighting

@@ -9,6 +9,8 @@ VIK_ENABLE = yes
 # For pre_process_record_user. Adds `keycode` field to `keyrecord_t` (why?).
 REPEAT_KEY_ENABLE = yes
 
+DEFERRED_EXEC_ENABLE = yes
+
 ifeq ($(strip $(FP_INDICATOR_LEDS)), yes)
    OPT_DEFS += -DFP_INDICATOR_LEDS
 endif
