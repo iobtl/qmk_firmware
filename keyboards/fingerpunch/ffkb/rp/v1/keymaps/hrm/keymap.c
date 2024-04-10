@@ -15,7 +15,7 @@ enum custom_keycodes {
 };
 
 #define SYM MO(_SYM)
-#define NUM MO(_NUM)
+#define NAV MO(_NAV)
 
 #define TAP_INTERVAL_MS 120
 
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Idea: put cmd-shift on right hand
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
-  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME LAG(KC_O), LAG(KC_P), _______,
+  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME, LAG(KC_O), LAG(KC_P), _______,
   KC_CAPS, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT,   KC_ENT,         KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, _______, _______,
   _______, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    _______, KC_PGDN, KC_PGUP, KC_MPRV,  KC_MSTP, KC_MNXT,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
@@ -199,7 +199,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Match mod-tap keys. Tweak this to limit conditions that matches
     // your keyboard and habits
-    if (IS_QK_MOD_TAP(record)) {
+    if (IS_QK_MOD_TAP(keycode)) {
         // Tap the mod-tap key instantly when it follows a short interval
         if (record->event.pressed && last_input_activity_elapsed() < TAP_INTERVAL_MS) {
             record->keycode = keycode & 0xff;
