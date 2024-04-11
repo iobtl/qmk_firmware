@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAV] = LAYOUT_ffkb(
   _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME, LAG(KC_O), LAG(KC_P), _______,
   KC_CAPS, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT,   KC_ENT,         KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, _______, _______,
-  _______, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    _______, KC_PGDN, KC_PGUP, KC_MPRV,  KC_MSTP, KC_MNXT,
+  _______, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    _______, KC_PGDN, KC_PGUP, KC_MPRV,  KC_MPLY, KC_MNXT,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
 
@@ -161,7 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.             ,-----------------------------------------.
  * |      |      | SRES |  SDN |  SUP | SCRL |             |MSBTN1|MSBTN2|MSBTN3|      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |      |      |      |      | ZOOM |             | WH_U | WH_D |      |      |      |      |
+ * |      | lctl | lalt | lcmd | lsft | ZOOM |             | WH_U | WH_D |      |      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |      | SNRES| SNDN | SNUP | SNPE |             | WBCK | WFWD |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
