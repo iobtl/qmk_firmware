@@ -71,6 +71,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   LCTL(KC_BSPC),        SYM,      KC_LSFT,        KC_ENT,         KC_SPC,  KC_BSPC,    NAV,      KC_UNDO
 ),
 
+/* COLEMAK-DH
+ * ,-----------------------------------------.             ,-----------------------------------------.
+ * |  ESC |   Q  |   W  |   F  |   P  |   B  |             |   J  |   L  |   U  |   I  |   ;  |  \   |
+ * |------+------+------+------+------+------|             |------+------+------+------+------+------|
+ * | TAB  |   A  |   R  |   S  |   T  |   H  |             |   M  |   N  |   E  |   I  |   O  |  '   |
+ * |------+------+------+------+------+------|             |------+------+------+------+------+------|
+ * | LSFT |   Z  |   X  |   C  |   D  |   V  |             |   K  |   H  |   ,  |   .  |   /  | RSFT |
+ * `-----------------------------------------'             `-----------------------------------------'
+ */
+[_COLEMAK] = LAYOUT_ffkb(
+  KC_ESC,         KC_Q,      KC_W,         KC_F,         KC_P,         KC_B,         KC_J,    KC_L,             KC_U,         KC_I,         KC_SCLN,             KC_BSLS,
+  KC_TAB,  LCTL_T(KC_A),      LALT_T(KC_R),         LGUI_T(KC_S),         LSFT_T(KC_T),         KC_H,         KC_M,    RSFT_T(KC_N),        RGUI_T(KC_E),         RALT_T(KC_I),         RCTL_T(KC_O),          KC_QUOT,
+  KC_LSFT,          KC_Z,      KC_X,         KC_C,         KC_D,         KC_V,         KC_K,    KC_H,             KC_COMM,      KC_DOT,       KC_SLSH,          KC_RSFT,
+                  LCTL(KC_BSPC),        SYM,      KC_LSFT,        KC_ENT,         KC_SPC,  KC_BSPC,    NAV,      KC_UNDO
+),
+
 /* Sym
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
@@ -101,15 +117,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Nav
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |      |      |      |      | c-s-4| c-s-5|             |      | end  | home | c-a-o|c-a-p |      |
+ * |      |      |      |      | c-s-4| c-s-5|             |      | end  | home | c-a-o|c-a-p |QWERTY|
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * | CAPS | lctl | lalt | lcmd | lsft |      |             | left | down |  up  | rght |      |      |
+ * | CAPS | lctl | lalt | lcmd | lsft |      |             | left | down |  up  | rght |      |COLEMK|
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |      |      |      |ctrl-b|c-a-b |             |      | pgdn | pgup | MPRV | MPLY | MNXT |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
  *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
- *          `------'        `--------------------'    `--------------------.        `------'
+ *           `------'        `--------------------'    `--------------------.        `------'
  */
 
 // Nav layer
@@ -128,8 +144,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Idea: put cmd-shift on right hand
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
-  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME, LAG(KC_O), LAG(KC_P), _______,
-  KC_CAPS, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT,   KC_ENT,         KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, _______, _______,
+  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME, LAG(KC_O), LAG(KC_P), DF(_QWERTY),
+  KC_CAPS, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT,   KC_ENT,         KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, _______, DF(_COLEMAK),
   _______, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    _______, KC_PGDN, KC_PGUP, KC_MPRV,  KC_MPLY, KC_MNXT,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),

@@ -11,6 +11,7 @@
 #define TAPPING_TERM 120
 
 // If another key is tapped while a key is currently being held, activates the held behavior instantly.
+// TODO: what about multiple modifier holds? e.g. cmd-shift-p
 #define PERMISSIVE_HOLD
 
 // Define only one of the two below, but not both.
