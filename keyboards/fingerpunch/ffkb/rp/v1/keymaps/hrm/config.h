@@ -14,6 +14,8 @@
 // TODO: what about multiple modifier holds? e.g. cmd-shift-p
 #define PERMISSIVE_HOLD
 
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+
 // Define only one of the two below, but not both.
 // Read here for details: https://github.com/sadekbaroudi/qmk_firmware/tree/master/keyboards/fingerpunch#layer-lighting
 
