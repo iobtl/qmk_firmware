@@ -7,7 +7,7 @@
 enum layer_names {
     _QWERTY,
     _COLEMAK,
-    _SYM
+    _SYM,
     _NAV,
     _NUM,
     _MOUSE
