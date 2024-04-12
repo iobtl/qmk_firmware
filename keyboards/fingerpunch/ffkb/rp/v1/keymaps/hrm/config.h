@@ -6,9 +6,9 @@
 #define AUTO_MOUSE_DEFAULT_LAYER 4
 
 // Time layer remains active after activation (default 650ms)
-#define AUTO_MOUSE_TIME 500
+#define AUTO_MOUSE_TIME 800
 
-#define TAPPING_TERM 150
+#define TAPPING_TERM 120
 
 // If another key is tapped while a key is currently being held, activates the held behavior instantly.
 #define PERMISSIVE_HOLD

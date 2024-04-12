@@ -19,7 +19,7 @@ enum custom_keycodes {
 #define SYM MO(_SYM)
 #define NAV MO(_NAV)
 
-#define TAP_INTERVAL_MS 120
+#define TAP_INTERVAL_MS 100
 
 // Left-hand home row mods
 #define CTL_A LCTL_T(KC_A)
