@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.             ,-----------------------------------------.
  * |   `  |   !  |   @  |   #  |   $  |   %  |             |   ^  |   &  |   *  |   (  |   )  |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |   {  |   }  |   [  |   ]  |  |   |             |   -  |   _  |   =  |   +  |  :   |      |
+ * |      |   [  |   ]  |   {  |   }  |  |   |             |   -  |   _  |   =  |   +  |  :   |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |   ~  |      |      |      |      |             |  ::  |   "  |   <  |   >  |  ?   |      |
  * `-----------------------------------------'             `-----------------------------------------'
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Left with: !@#$%, ""
 [_SYM] = LAYOUT_ffkb(
   KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-  _______, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_PIPE,      KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, KC_COLN, _______,
+  _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PIPE,      KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, KC_COLN, _______,
   _______, KC_TILD, _______, _______, _______, _______,      DCOLN,   KC_DQUO, KC_LABK, KC_RABK, KC_QUES, _______,
                     _______, _______, _______, _______,      _______, _______, _______, _______
 ),
