@@ -41,22 +41,7 @@ jobs:
       - name: Build firmware
         shell: bash
         run: |
-          wget -q https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq
-          chmod +x jq
-          mv jq /usr/local/sbin/
-
-          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~ | grep ffkb/rp/v1)
-
-          echo "${keyboards}" | while IFS= read -r line ; do
-            case "$line" in
-              *${{ matrix.keyboard }}*)
-                echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -r -m hrm"
-                echo "${make_command}"
-                $make_command
-              ;;
-            esac
-          done
+          make fingerpunch/ffkb/rp/v1:hrm FP_TRACKBALL_ENABLE=yes FP_EC11=yes AUDIO_ENABLE=no HAPTIC_ENABLE=no
 
       - name: Archive firmware
         uses: actions/upload-artifact@v3

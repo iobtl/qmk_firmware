@@ -9,6 +9,7 @@ enum layer_names {
     _COLEMAK,
     _SYM,
     _NAV,
+    _NUM,
     _MOUSE
 };
 
