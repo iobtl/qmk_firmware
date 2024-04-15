@@ -9,7 +9,7 @@ enum layer_names {
     _COLEMAK,
     _SYM,
     _NAV,
-    _NUM,
+    _MISC,
     _MOUSE
 };
 
@@ -115,14 +115,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     _______, _______, _______, _______,      _______, _______, _______, _______
 ),
 
-/* Nav
+
+/* Nav/Num
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |      |      |      |      | c-s-4| c-s-5|             |      | end  | home | c-a-o|c-a-p |QWERTY|
+ * |      | c-a-a| c-a-b| c-a-s|c-a-o |c-a-p |             | home | pgdn | pgup | end  |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * | CAPS | lctl | lalt | lcmd | lsft |      |             | left | down |  up  | rght |      |COLEMK|
+ * |      |   1  |  2   |  3   |  4   |  5   |             |   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |QKBOOT|      |      |      |ctrl-b|c-a-b |             |      | pgdn | pgup | MPRV | MPLY | MNXT |
+ * |      | lctl | lalt | lcmd | lsft |      |             | left | down |   up | right|   .  |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
  *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
@@ -145,42 +146,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Idea: put cmd-shift on right hand
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
-  _______, _______,   _______,   _______, SCMD(KC_4), SCMD(KC_5),      _______, KC_END, KC_HOME, LAG(KC_O), LAG(KC_P), DF(_QWERTY),
-  KC_CAPS, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT,   KC_ENT,         KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, _______, DF(_COLEMAK),
-  QK_BOOT, _______,   _______,   _______, LCTL(KC_B), LAG(KC_B),    _______, KC_PGDN, KC_PGUP, KC_MPRV,  KC_MPLY, KC_MNXT,
+  _______, LAG(KC_A), LAG(KC_B), LAG(KC_S), LAG(KC_O), LAG(KC_P),      KC_HOME, KC_PGDN, KC_PGUP, KC_END, _______, _______,
+  _______, KC_1,   KC_2,   KC_3, KC_4,   KC_5,                         KC_6, KC_7, KC_8,  KC_9, KC_0, _______,
+  _______, KC_LCTL,   KC_LALT,   KC_LGUI, KC_LSFT, _______,            KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,  KC_DOT, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
 
-/* Num
+/* Misc
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |      |      |      |      |      |      |             |      |      |      |      |      |      |
+ * | BOOT |QWERTY|      |      |      |      |             |      |      | MPRV | MPLY | MNXT |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |   1  |  2   |   3  |   4  |  5   |             |  6   |   7  |   8  |   9  |   0  |      |
+ * | CAPS |COLEMK|      |      |      |      |             |      |      |      |      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |      |      |      |      |      |             |      |      |      |      |      |      |
+ * |      | UNDO | CUT  | COPY | PASTE|      |             |      |      |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
  *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
- *          `------'        `--------------------'    `--------------------.        `------'
+ *           `------'        `--------------------'    `--------------------.        `------'
  */
-
-// Num layer
-[_NUM] = LAYOUT_ffkb(
-  _______, _______,   _______,    _______, _______, _______,                  _______, _______, _______, _______, _______, _______,
-  _______, KC_1,   KC_2,    KC_3, KC_4, KC_5,                  KC_6, KC_7, KC_8, KC_9, KC_0, _______,
-  _______, _______,   _______,   _______, _______, _______,    _______, _______, _______, _______,  _______, _______,
+[_MISC] = LAYOUT_ffkb(
+  QK_BOOT, DF(_QWERTY), _______, _______, _______, _______,      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
+  KC_CAPS, DF(_COLEMAK),   _______,   _______, _______,   _______,                         _______, _______, _______,  _______, _______, _______,
+  _______, KC_UNDO,   KC_CUT,   KC_COPY, KC_PSTE, _______,            _______, _______, _______, _______,  _______, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
 
 /* Mouse layer
-
+ *
  * ,-----------------------------------------.             ,-----------------------------------------.
  * |      |      | SRES |  SDN |  SUP | SCRL |             |MSBTN1|MSBTN2|MSBTN3|      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      | lctl | lalt | lcmd | lsft | ZOOM |             | WH_U | WH_D |      |      |      |      |
+ * |      |      | SNRES| SNDN | SNUP | ZOOM |             | WH_U | WH_D |      |      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |      | SNRES| SNDN | SNUP | SNPE |             | WBCK | WFWD |      |      |      |      |
+ * |      | lctl | lalt | lcmd | lsft | SNPE |             | WBCK | WFWD |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
  *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
@@ -189,15 +188,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_MOUSE] =  LAYOUT_ffkb(
   _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_MOMENT,          KC_BTN1, KC_BTN2, KC_BTN3, _______, _______, _______,
-  _______, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT, FP_ZOOM_MOMENT,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
-  _______, _______, FP_SNIPE_DPI_RESET, FP_SNIPE_DPI_DN, FP_SNIPE_DPI_UP, FP_SNIPE_MOMENT,          KC_WBAK, KC_WFWD, _______, _______, _______, _______,
+  _______, _______, FP_SNIPE_DPI_RESET, FP_SNIPE_DPI_DN, FP_SNIPE_DPI_UP, FP_SNIPE_MOMENT,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
+  _______, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT, FP_ZOOM_MOMENT,          KC_WBAK, KC_WFWD, _______, _______, _______, _______,
                     _______, _______, _______, _______,                 _______, _______, _______, _______
 )
 };
 
 // used to turn on third layer if both SYM and NAV are activated
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _SYM, _NAV, _NUM);
+  return update_tri_layer_state(state, _SYM, _NAV, _MISC);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
