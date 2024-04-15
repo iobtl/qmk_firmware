@@ -6,7 +6,7 @@
 #define AUTO_MOUSE_DEFAULT_LAYER 5
 
 // Time layer remains active after activation (default 650ms)
-#define AUTO_MOUSE_TIME 800
+#define AUTO_MOUSE_TIME 650
 
 #define TAPPING_TERM 150
 
