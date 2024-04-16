@@ -76,14 +76,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.             ,-----------------------------------------.
  * |  ESC |   Q  |   W  |   F  |   P  |   B  |             |   J  |   L  |   U  |   Y  |   ;  |  \   |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * | TAB  |   A  |   R  |   S  |   T  |   H  |             |   M  |   N  |   E  |   I  |   O  |  '   |
+ * | TAB  |   A  |   R  |   S  |   T  |   G  |             |   M  |   N  |   E  |   I  |   O  |  '   |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * | LSFT |   Z  |   X  |   C  |   D  |   V  |             |   K  |   H  |   ,  |   .  |   /  | RSFT |
  * `-----------------------------------------'             `-----------------------------------------'
  */
 [_COLEMAK] = LAYOUT_ffkb(
   KC_ESC,         KC_Q,      KC_W,         KC_F,         KC_P,         KC_B,         KC_J,    KC_L,             KC_U,         KC_Y,         KC_SCLN,             KC_BSLS,
-  KC_TAB,  KC_A,      KC_R,         KC_S,         KC_T,         KC_H,         KC_M,    KC_N,        KC_E,         KC_I,         KC_O,          KC_QUOT,
+  KC_TAB,  KC_A,      KC_R,         KC_S,         KC_T,         KC_G,         KC_M,    KC_N,        KC_E,         KC_I,         KC_O,          KC_QUOT,
   KC_LSFT,          LCTL_T(KC_Z),      LALT_T(KC_X),         LGUI_T(KC_C),         LSFT_T(KC_D),         KC_V,         KC_K,    RSFT_T(KC_H),             RGUI_T(KC_COMM),      RALT_T(KC_DOT),       RCTL_T(KC_SLSH),          KC_RSFT,
                   LCTL(KC_BSPC),        OSM(MOD_LSFT),      SYM,        KC_ENT,         KC_SPC,  KC_BSPC,    NAV,      KC_UNDO
 ),
