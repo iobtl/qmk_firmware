@@ -187,10 +187,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_MOUSE] =  LAYOUT_ffkb(
-  _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_MOMENT,          KC_BTN1, KC_BTN2, KC_BTN3, _______, _______, _______,
+  _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_MOMENT,          _______, _______, _______, _______, _______, _______,
   _______, _______, FP_SNIPE_DPI_RESET, FP_SNIPE_DPI_DN, FP_SNIPE_DPI_UP, FP_SNIPE_MOMENT,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
-  _______, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT, FP_ZOOM_MOMENT,          KC_WBAK, KC_WFWD, _______, _______, _______, _______,
-                    _______, _______, _______, _______,                 _______, _______, _______, _______
+  _______, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT, FP_ZOOM_MOMENT,          KC_BTN1, KC_BTN2, _______, _______, _______, _______,
+                    _______, _______, _______, KC_BTN1,                 KC_BTN2, _______, _______, _______
 )
 };
 
