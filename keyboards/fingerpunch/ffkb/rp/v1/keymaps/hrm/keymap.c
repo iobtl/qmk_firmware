@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Idea: put cmd-shift on right hand
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
-  _______, LAG(KC_A), LAG(KC_B), LAG(KC_S), LAG(KC_O), LAG(KC_P),      KC_MINS, KC_7, KC_8,  KC_9, KC_UNDS, _______, _______,
+  _______, LAG(KC_A), LAG(KC_B), LAG(KC_S), LAG(KC_O), LAG(KC_P),      KC_MINS, KC_7, KC_8,  KC_9, KC_UNDS, _______,
   _______, _______,   _______, _______, _______,   _______,            KC_PLUS, KC_4, KC_5,  KC_6, KC_ASTR,  _______,
   _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______,                  KC_0,    KC_1, KC_2,  KC_3, KC_DOT, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
@@ -175,19 +175,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Mouse layer
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |      |      | SRES |  SDN |  SUP | SCRL |             |MSBTN1|MSBTN2|MSBTN3|      |      |      |
+ * |      |      | SRES |  SDN |  SUP | SCRL |             |c-s-4 |c-s-5 |      |      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |      | SNRES| SNDN | SNUP | ZOOM |             | WH_U | WH_D |      |      |      |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      | lctl | lalt | lcmd | lsft | SNPE |             | WBCK | WFWD |      |      |      |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
- *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
+ *          | DELW |        | SYM  | LSFT | BTN1 |    | BTN2 | BSPC | NAV |        | UNDO |
  *          `------'        `--------------------'    `--------------------.        `------'
  */
 
 [_MOUSE] =  LAYOUT_ffkb(
-  _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_MOMENT,          _______, _______, _______, _______, _______, _______,
+  _______, _______, FP_SCROLL_DPI_RESET, FP_SCROLL_DPI_DN, FP_SCROLL_DPI_UP, FP_SCROLL_MOMENT,          LSG(KC_4), LSG(KC_5), _______, _______, _______, _______,
   _______, _______, FP_SNIPE_DPI_RESET, FP_SNIPE_DPI_DN, FP_SNIPE_DPI_UP, FP_SNIPE_MOMENT,          KC_WH_U, KC_WH_D, _______, _______, _______, _______,
   _______, KC_LCTL,   KC_LALT,   KC_LCMD, KC_LSFT, FP_ZOOM_MOMENT,          KC_BTN1, KC_BTN2, _______, _______, _______, _______,
                     _______, _______, _______, KC_BTN1,                 KC_BTN2, _______, _______, _______
