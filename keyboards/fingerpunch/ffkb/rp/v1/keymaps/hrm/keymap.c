@@ -18,7 +18,7 @@ enum custom_keycodes {
 };
 
 #define SYM MO(_SYM)
-#define NAV TG(_NAV)
+#define NAV TT(_NAV)
 
 #define TAP_INTERVAL_MS 100
 
@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
  * |      |   [  |   ]  |   {  |   }  |  |   |             |   -  |   _  |   =  |   +  |  :   |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |   ~  |      |      |      |      |             |  ::  |   "  |   <  |   >  |  ?   |      |
+ * |      |      |      |      |      |  ~   |             |  ::  |   "  |   <  |   >  |  ?   |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
  *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYM] = LAYOUT_ffkb(
   KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
   _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PIPE,      KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, KC_COLN, _______,
-  _______, KC_TILD, _______, _______, _______, _______,      DCOLN,   KC_DQUO, KC_LABK, KC_RABK, KC_QUES, _______,
+  _______, _______, _______, _______, _______, KC_TILD,      DCOLN,   KC_DQUO, KC_LABK, KC_RABK, KC_QUES, _______,
                     _______, _______, _______, _______,      _______, _______, _______, _______
 ),
 
@@ -119,11 +119,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Nav/Num
  *
  * ,-----------------------------------------.             ,-----------------------------------------.
- * |      | c-a-a| c-a-b| c-a-s|c-a-o |c-a-p |             | home | pgdn | pgup | end  |      |      |
+ * |      | c-a-a| c-a-b| c-a-s|c-a-o |c-a-p |             |   -  |   7  |   8  |   9  |   _  |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |   1  |  2   |  3   |  4   |  5   |             |   6  |   7  |   8  |   9  |   0  |      |
+ * |      |      |      |      |      |      |             |   +  |   4  |   5  |   6  |   *  |      |
  * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      | lctl | lalt | lcmd | lsft |      |             | left | down |   up | right|   .  |      |
+ * |      | left | down |  up  | rght |      |             |   0  |   1  |   2  |   3  |   .  |      |
  * `-----------------------------------------'             `-----------------------------------------'
  *          ,------.        ,--------------------.    ,--------------------.        ,------.
  *          | DELW |        | SYM  | LSFT |  ENT |    | Space | BSPC | NAV |        | UNDO |
@@ -146,9 +146,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Idea: put cmd-shift on right hand
 // one-shot keys also work as modifiers
 [_NAV] = LAYOUT_ffkb(
-  _______, LAG(KC_A), LAG(KC_B), LAG(KC_S), LAG(KC_O), LAG(KC_P),      KC_HOME, KC_PGDN, KC_PGUP, KC_END, _______, _______,
-  _______, KC_1,   KC_2,   KC_3, KC_4,   KC_5,                         KC_6, KC_7, KC_8,  KC_9, KC_0, _______,
-  _______, KC_LCTL,   KC_LALT,   KC_LGUI, KC_LSFT, _______,            KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,  KC_DOT, _______,
+  _______, LAG(KC_A), LAG(KC_B), LAG(KC_S), LAG(KC_O), LAG(KC_P),      KC_MINS, KC_7, KC_8,  KC_9, KC_UNDS, _______, _______,
+  _______, _______,   _______, _______, _______,   _______,            KC_PLUS, KC_4, KC_5,  KC_6, KC_ASTR,  _______,
+  _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______,                  KC_0,    KC_1, KC_2,  KC_3, KC_DOT, _______,
                       _______,   _______, _______, _______,      _______, _______, _______, _______
 ),
 

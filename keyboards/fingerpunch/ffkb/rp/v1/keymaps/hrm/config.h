@@ -16,6 +16,8 @@
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
+#define TAPPING_TOGGLE 2
+
 // Define only one of the two below, but not both.
 // Read here for details: https://github.com/sadekbaroudi/qmk_firmware/tree/master/keyboards/fingerpunch#layer-lighting
 
